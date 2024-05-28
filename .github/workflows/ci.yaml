@@ -24,7 +24,7 @@ jobs:
         run: terraform fmt -diff -check -recursive
 
   generate_docs:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -36,6 +36,7 @@ jobs:
 
       - name: Generate documentation from Terraform modules
         run: |
+          brew install terraform-docs
           terraform-docs --version
           ./scripts/generate_docs.sh
 
