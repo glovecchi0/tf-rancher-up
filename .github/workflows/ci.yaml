@@ -18,7 +18,7 @@ jobs:
       - name: Setup node
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.5"
+          terraform_version: "1.8"
 
       - name: Rewrites all Terraform configuration files to a canonical format
         run: terraform fmt -diff -check -recursive
@@ -62,7 +62,7 @@ jobs:
       - name: Setup node
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.5"
+          terraform_version: "1.8"
 
       - name: Test the Terraform code inside the ./tests folder to make sure the modules/recipes are working
         run: |
