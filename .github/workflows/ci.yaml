@@ -10,13 +10,13 @@ on:
 
 jobs:
   lint_terraform:
-    runs_on: hashicorp/terraform:1.8
+    runs-on: hashicorp/terraform:1.8
     steps:
       - name: Rewrites all Terraform configuration files to a canonical format
         run: terraform fmt -diff -check -recursive
 
   generate_docs:
-    runs_on: quay.io/terraform-docs/terraform-docs:v0.17.0
+    runs-on: quay.io/terraform-docs/terraform-docs:v0.17.0
     steps:
       - name: Generate documentation from Terraform modules
         run: |
@@ -24,7 +24,7 @@ jobs:
           ./scripts/generate_docs.sh
 
   check_docs:
-    runs_on: alpine/git:2.45.1
+    runs-on: alpine/git:2.45.1
     steps:
       - name: Check if the documents have been updated
         run: |
