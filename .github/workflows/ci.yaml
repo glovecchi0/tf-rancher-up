@@ -72,6 +72,7 @@ jobs:
           BASE64_GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.BASE64_GOOGLE_APPLICATION_CREDENTIALS }}
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT_ID }}
         run: |
+          touch ./gcp-ci_sa.json
           echo $BASE64_GOOGLE_APPLICATION_CREDENTIALS | base64 -d > ./gcp-ci_sa.json
           export GOOGLE_APPLICATION_CREDENTIALS="./gcp-ci_sa.json"
           ./scripts/run_sanity_checks.sh tests
