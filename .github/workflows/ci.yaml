@@ -33,7 +33,7 @@ jobs:
           if [ -n "$(git status --porcelain --untracked-files=no)" ]; then echo "Error changes detected ${CHANGES}"; exit 1; fi
 
   run_sanity_checks:
-    run_on: hashicorp/terraform:1.8
+    runs-on: hashicorp/terraform:1.8
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key }} 
       AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_key }}
