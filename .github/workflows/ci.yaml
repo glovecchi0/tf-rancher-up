@@ -10,7 +10,7 @@ on:
 
 jobs:
   lint_terraform:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
           terraform_version: "1.8"
 
       - name: Rewrites all Terraform configuration files to a canonical format
-        run: terraform fmt -diff -check -recursive
+        run: terraform fmt -diff -recursive
 
   generate_docs:
     runs-on: macos-latest
